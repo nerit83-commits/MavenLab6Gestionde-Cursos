@@ -1,4 +1,4 @@
-package com.example;
+package com.example.Models;
 
 /*Academia con cursos online y onsite.
 
@@ -48,11 +48,10 @@ public class Course {
     }
 
     //Método que se sobreescribirá.
-    public String showInformation() {
-        String info = "[Course] " + title + " (" + duration + " hr) - Professor: " + professor;
-        System.out.println(info);
-        return info;
+    public void showInformation() {
+        System.out.println("[Course] " + title + " (" + duration + " hr) - Professor: " + professor);
     }
+
 
     //Definir getter y settter
     public String getTitle() {
