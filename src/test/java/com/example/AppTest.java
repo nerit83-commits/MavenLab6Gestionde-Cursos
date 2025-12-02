@@ -4,9 +4,10 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import com.example.Course;
-import com.example.OnlineCourse;
-import com.example.OnsiteCourse;
+
+import com.example.Models.Course;
+import com.example.Models.OnlineCourse;
+import com.example.Models.OnsiteCourse;
 
 
 /*Requerimientos
@@ -40,11 +41,14 @@ public class AppTest {
     public void testCourseConstructorAndShowInformation() {  // CourseTest verifica el constructor y showInformation
         Course course = new Course("Java Basics", 40, "John Doe", "", 0, 0);  // Constructor con profesor asignado
         course.showInformation();  // Debería mostrar: [Course] Java Basics (40 hr) - Professor: John Doe
-        assertEquals("Java Basics", course.getTitle());  // Verifica título
+        /*assertEquals("Java Basics", course.getTitle());  // Verifica título
         assertEquals(40, course.getDuration());  // Verifica duración
         assertEquals("John Doe", course.getProfessor());  // Verifica profesor
-
         assertTrue(course.getProfessor().equals("John Doe"));  // Verifica que el profesor sea "John Doe"
+        */
+       assertTrue(course.getTitle().equals("Java Basics")&&
+                  (course.getDuration() == 40) &&
+                  (course.getProfessor().equals("John Doe")));
 
     }
 
@@ -53,13 +57,22 @@ public class AppTest {
     public void testCourseConstructorWithoutProfessorAndShowInformation() {
         Course course = new Course("Java Basics", 40);  // Constructor sin profesor asignado
         course.showInformation();  // Debería mostrar: [Course] Java Basics (40 hr) - Professor: unassigned
+        /* 
         assertEquals("Java Basics", course.getTitle());  // Verifica título
         assertEquals(40, course.getDuration());  // Verifica duración
         assertEquals("unassigned", course.getProfessor());  // Verifica profesor por defecto
 
         assertTrue(course.getProfessor().equals("unassigned"));  // Verifica que el profesor sea "unassigned"
+        */
+
+        assertTrue(course.getTitle().equals("Java Basics") &&
+                    (course.getDuration() == 40 &&
+                    (course.getProfessor().equals("unassigned"))));
 
     }
+
+
+
 
 
     @Test
@@ -97,11 +110,18 @@ public class AppTest {
         OnsiteCourse onsiteCourse = new OnsiteCourse("Data Science", 50, "Aula 101", 25);  // Crea un curso onsite
         onsiteCourse.setProfessor("Alice Johnson");  // Asigna un profesor
         onsiteCourse.showInformation();  // Debería mostrar: [Onsite] Data Science (50 hr) - Room: Aula 101, MaxQuota: 25
+        /* 
         assertEquals("Aula 101", onsiteCourse.getClassroom());  // Verifica aula
         assertEquals(25, onsiteCourse.getMaxQuota());  // Verifica cupo máximo
 
         assertTrue(onsiteCourse.getClassroom().equals("Aula 101"));  // Verifica que el aula sea "Aula 101"
         assertTrue(onsiteCourse.getMaxQuota() == 25);  // Verifica que el cupo máximo sea 25
+        */
+        assertTrue(onsiteCourse.getTitle().equals("Data Science") &&
+                    (onsiteCourse.getDuration() == 50 &&
+                    (onsiteCourse.getProfessor().equals("Alice Johnson") &&
+                    (onsiteCourse.getClassroom().equals("Aula 101") &&
+                    (onsiteCourse.getMaxQuota() == 25)))));    
 
         assertNotNull(onsiteCourse);  // Verifica que el objeto curso onsite no sea nulo
     }

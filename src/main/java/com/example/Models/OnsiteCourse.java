@@ -1,4 +1,4 @@
-package com.example;
+package com.example.Models;
 
 public class OnsiteCourse extends Course{
     private String classroom;

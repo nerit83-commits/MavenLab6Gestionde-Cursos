@@ -1,4 +1,4 @@
-package com.example;
+package com.example.Models;
 
 /*Academia con cursos online y onsite.
 
